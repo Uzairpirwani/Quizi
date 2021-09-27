@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".GameFragment"
+    >
+
+    <data>
+
+        <variable
+            name="game"
+            type="com.example.quizi.GameFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+
+        <ImageView
+            android:id="@+id/question_image"
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp"
+            android:layout_height="192dp"
+            android:background="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/android_category_simple" />
+
+        <TextView
+            android:id="@+id/game_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="32dp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:text="@{game.currentquestion.text}"
+            tools:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/question_image"
+            tools:text="What color is the Android mascot?" />
+        
+        <RadioGroup
+            android:id="@+id/radio_grp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_txt">
+
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textSize="18sp"
+                android:text="@{game.answer[0]}"
+                tools:text="Blue"
+                tools:textColor="@color/black"
+                android:textColor="@color/black"
+                />
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@{game.answer[1]}"
+                tools:text="Blue"
+                tools:textColor="@color/black"
+                android:textColor="@color/black"
+                />
+            <RadioButton
+                android:id="@+id/rb3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@{game.answer[2]}"
+                tools:text="Blue"
+                tools:textColor="@color/black"
+                android:textColor="@color/black"
+                />
+            <RadioButton
+                android:id="@+id/rb4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@{game.answer[3]}"
+                tools:text="Blue"
+                tools:textColor="@color/black"
+                android:textColor="@color/black"
+                />
+
+        </RadioGroup>
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio_grp"
+            android:text="Submit"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

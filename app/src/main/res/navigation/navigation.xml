@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/title_fragment">
+
+    <fragment
+        android:id="@+id/title_fragment"
+        android:name="com.example.quizi.TitleFragment"
+        android:label="Android Trivia"
+        tools:layout="@layout/fragment_title">
+        <action
+            android:id="@+id/action_title_fragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.quizi.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_outFragment"
+            app:destination="@id/outFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_wonFragment"
+            app:destination="@id/wonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wonFragment"
+        android:name="com.example.quizi.WonFragment"
+        android:label="WonFragment" />
+    <fragment
+        android:id="@+id/outFragment"
+        android:name="com.example.quizi.OutFragment"
+        android:label="OutFragment" >
+        <action
+            android:id="@+id/action_outFragment_self"
+            app:destination="@id/outFragment" />
+    </fragment>
+
+</navigation>
